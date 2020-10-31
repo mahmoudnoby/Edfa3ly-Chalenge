@@ -31,12 +31,11 @@ export class ProductItemComponent implements OnInit  {
     this.sharedService.currentCat_id.subscribe(res => {
       this.categoryId = res;
       console.log(this.categoryId);
-      
+      this.productFilteredList = this.products
+                                  .filter((product) => product.categoryId === this.categoryId);
+      this.products = this.productFilteredList; 
+      console.log(this.products);    
     });
-    this.productFilteredList = this.products
-                                .filter((product) => product.categoryId === this.categoryId);
-    this.products = this.productFilteredList; 
-    console.log(this.products);    
   }
 
   // filterProducts() {
