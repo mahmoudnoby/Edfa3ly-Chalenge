@@ -1,0 +1,49 @@
+
+/*--------------------------------------------------------------------------------------------------------
+                                * MAIN NAVBAR * 
+--------------------------------------------------------------------------------------------------------*/
+.bg-light {
+    background-color: #fff!important;
+}
+.navbar-light .navbar-brand{
+    font-weight: bold;
+    padding: 13px;
+    font-size: 1.9rem;
+    line-height: 30px;
+}
+nav .form-inline .form-control{
+    width: 600px;
+    height: 40px;
+    outline: 0;
+    box-shadow: none!important;
+}
+nav .form-inline .btn{
+    outline: 0;
+    box-shadow: none !important;
+    background-color:rgba(0, 131, 207, 0.794); 
+    border-color: rgba(0, 131, 207, 0.794); 
+}
+nav .form-inline .btn:hover{
+    background-color:rgb(4, 120, 187); 
+    border-color: rgb(4, 120, 187); 
+}
+@media(max-width: 575.98px),(max-width: 767.98px) {
+    nav .form-inline .form-control{
+        max-width: 425px !important;
+    }
+}
+/*--------------------------------------------------------------------------------------------------------
+                                * Site Map Navbar * 
+--------------------------------------------------------------------------------------------------------*/
+.bg-dark{
+    background-color: #fff !important;
+    border-top: 1px rgb(173, 173, 173) dotted;
+    border-bottom: 1px rgb(173, 173, 173) dotted;
+    margin-bottom: 15px;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: rgba(0, 131, 207, 0.794); 
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+    color:  rgb(4, 120, 187)  !important;
+}

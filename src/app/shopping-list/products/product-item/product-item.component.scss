@@ -1,0 +1,33 @@
+.product-card .card-body{
+    padding: 1rem;
+}
+.product-card .card-text{
+    font-size: 11px;
+}
+.product-card h3{
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: rgba(0, 131, 207, 0.794); 
+}
+.product-card h5{
+    font-size: 19px;
+    font-weight: 400;
+}
+.product-card .deleted{
+    font-size: 14px;
+    color: rgb(168, 168, 168);
+
+}
+.product-card h6{
+    color:rgba(0, 131, 207, 0.794); 
+}
+.product-card span{
+    font-size: 12px;
+    margin-right: 20px;
+}
+.product-card .product-review .fas{
+    font-size: 15px;
+    color: rgba(0, 131, 207, 0.794);
+}
