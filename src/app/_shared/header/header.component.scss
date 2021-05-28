@@ -1,9 +1,10 @@
 
 /*--------------------------------------------------------------------------------------------------------
-                                * MAIN NAVBAR * 
+                                * MAIN NAVBAR *
 --------------------------------------------------------------------------------------------------------*/
 .bg-light {
     background-color: #fff!important;
+    padding: 0 65px;
 }
 .navbar-light .navbar-brand{
     font-weight: bold;
@@ -20,12 +21,12 @@ nav .form-inline .form-control{
 nav .form-inline .btn{
     outline: 0;
     box-shadow: none !important;
-    background-color:rgba(0, 131, 207, 0.794); 
-    border-color: rgba(0, 131, 207, 0.794); 
+    background-color:rgba(0, 131, 207, 0.794);
+    border-color: rgba(0, 131, 207, 0.794);
 }
 nav .form-inline .btn:hover{
-    background-color:rgb(4, 120, 187); 
-    border-color: rgb(4, 120, 187); 
+    background-color:rgb(4, 120, 187);
+    border-color: rgb(4, 120, 187);
 }
 @media(max-width: 575.98px),(max-width: 767.98px) {
     nav .form-inline .form-control{
@@ -33,16 +34,15 @@ nav .form-inline .btn:hover{
     }
 }
 /*--------------------------------------------------------------------------------------------------------
-                                * Site Map Navbar * 
+                                * Site Map Navbar *
 --------------------------------------------------------------------------------------------------------*/
 .bg-dark{
-    background-color: #fff !important;
-    border-top: 1px rgb(173, 173, 173) dotted;
-    border-bottom: 1px rgb(173, 173, 173) dotted;
+    background-color: #E8EBEE !important;
     margin-bottom: 15px;
+    padding: 0 65px;
 }
 .navbar-dark .navbar-nav .nav-link{
-    color: rgba(0, 131, 207, 0.794); 
+    color: rgba(0, 131, 207, 0.794);
 }
 .navbar-dark .navbar-nav .nav-link:hover{
     color:  rgb(4, 120, 187)  !important;

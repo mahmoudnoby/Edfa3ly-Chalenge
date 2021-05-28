@@ -17,8 +17,8 @@ export class ProductItemComponent implements OnInit  {
       ) { }
 
   ngOnInit(): void {
-    this.getProducts();
     this.getCatId();
+    this.getProducts();
   }
 
   getProducts() {
@@ -30,9 +30,9 @@ export class ProductItemComponent implements OnInit  {
   getCatId() {
     this.sharedService.currentCat_id.subscribe(res => {
       this.categoryId = res;
+      this.getProducts();
       console.log(this.categoryId);
-      this.productFilteredList = this.products
-                                  .filter((product) => product.categoryId === this.categoryId);
+      this.productFilteredList = this.products.filter((product) => product.categoryId === this.categoryId);
       this.products = this.productFilteredList; 
       console.log(this.products);    
     });
