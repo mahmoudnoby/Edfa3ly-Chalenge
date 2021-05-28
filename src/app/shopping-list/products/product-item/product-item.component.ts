@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
-import { ShoppingListService } from './../../services/shopping-list.service';
+import { ShoppingService } from '../../services/shopping.service';
 import { SharedService } from './../../../_shared/services/shared.service';
 
 @Component({
@@ -10,33 +10,41 @@ import { SharedService } from './../../../_shared/services/shared.service';
 export class ProductItemComponent implements OnInit  {
   products= [];
   productFilteredList= []
-  categoryId: number;  
+  typeId: number;
     constructor(
-      private shoppingListService: ShoppingListService,
+      private shoppingListService: ShoppingService,
       private sharedService: SharedService
       ) { }
 
   ngOnInit(): void {
-    this.getCatId();
     this.getProducts();
+    this.getFilteringIds();
   }
 
-  getProducts() {
-    this.shoppingListService.getProducts().subscribe(res => {
+  getFilteredProducts() {
+    this.shoppingListService.filteredProductsList(this.typeId).subscribe(res => {
       this.products = res;
     });
   }
 
-  getCatId() {
-    this.sharedService.currentCat_id.subscribe(res => {
-      this.categoryId = res;
-      this.getProducts();
-      console.log(this.categoryId);
-      this.productFilteredList = this.products.filter((product) => product.categoryId === this.categoryId);
-      this.products = this.productFilteredList; 
-      console.log(this.products);    
+  getFilteringIds() {
+    this.shoppingListService.productTypeSubject.subscribe( res => {
+      this.typeId = res
+      this.getFilteredProducts();
+      console.log(this.typeId);
     });
   }
+
+  // getCatId() {
+  //   this.sharedService.currentCat_id.subscribe(res => {
+  //     this.categoryId = res;
+  //     this.getProducts();
+  //     console.log(this.categoryId);
+  //     this.productFilteredList = this.products.filter((product) => product.categoryId === this.categoryId);
+  //     this.products = this.productFilteredList;
+  //     console.log(this.products);
+  //   });
+  // }
 
   // filterProducts() {
   //   this.products.filter( res  => {
@@ -45,7 +53,11 @@ export class ProductItemComponent implements OnInit  {
   //   });
   // }
 
- 
+  getProducts() {
+    this.shoppingListService.getProductList().subscribe( res => {
+      this.products = res;
+    })
+  }
 
 }
 

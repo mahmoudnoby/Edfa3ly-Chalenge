@@ -1,10 +1,8 @@
-
-    .color-filter{
-        padding: 20px 20px;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0.25rem;
-        .form-group{
-            margin-bottom: 7px !important;
-        }
-    }
-
+.color-filter {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  .form-group {
+    margin-bottom: 7px !important;
+    padding: 22px;
+  }
+}
