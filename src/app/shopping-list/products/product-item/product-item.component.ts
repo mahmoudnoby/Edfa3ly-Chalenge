@@ -10,7 +10,8 @@ import { SharedService } from './../../../_shared/services/shared.service';
 export class ProductItemComponent implements OnInit  {
   products= [];
   productFilteredList= []
-  typeId: number;
+  filteredObject: any;
+  totalproducts: number;
     constructor(
       private shoppingListService: ShoppingService,
       private sharedService: SharedService
@@ -19,43 +20,33 @@ export class ProductItemComponent implements OnInit  {
   ngOnInit(): void {
     this.getProducts();
     this.getFilteringIds();
+    this.shoppingListService.productsListSubject.subscribe(res => {
+      this.products = res;
+      this.totalproducts = res.length;
+    })
   }
 
   getFilteredProducts() {
-    this.shoppingListService.filteredProductsList(this.typeId).subscribe(res => {
+    const typeId = this.filteredObject.typeId == null ? 1 : this.filteredObject.typeId;
+    const sizeId = this.filteredObject.sizeId === null ? 1 : this.filteredObject.sizeId;
+    const colorId = this.filteredObject.sizeId === null ? 1 : this.filteredObject.colorId;
+    this.shoppingListService.filteredProductsList(typeId, colorId, sizeId).subscribe(res => {
       this.products = res;
+      this.totalproducts = res.length;
     });
   }
 
   getFilteringIds() {
-    this.shoppingListService.productTypeSubject.subscribe( res => {
-      this.typeId = res
+    this.shoppingListService.filterproductSubject.subscribe( res => {
+      this.filteredObject = res;
       this.getFilteredProducts();
-      console.log(this.typeId);
     });
   }
-
-  // getCatId() {
-  //   this.sharedService.currentCat_id.subscribe(res => {
-  //     this.categoryId = res;
-  //     this.getProducts();
-  //     console.log(this.categoryId);
-  //     this.productFilteredList = this.products.filter((product) => product.categoryId === this.categoryId);
-  //     this.products = this.productFilteredList;
-  //     console.log(this.products);
-  //   });
-  // }
-
-  // filterProducts() {
-  //   this.products.filter( res  => {
-  //     res.categoryId == this.categoryId;
-  //     console.log(this.products);
-  //   });
-  // }
 
   getProducts() {
     this.shoppingListService.getProductList().subscribe( res => {
       this.products = res;
+      this.totalproducts = res.length;
     })
   }
 

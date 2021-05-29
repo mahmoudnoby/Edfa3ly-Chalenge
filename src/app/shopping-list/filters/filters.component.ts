@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { ShoppingService } from '../services/shopping.service';
 
 @Component({
@@ -8,21 +7,18 @@ import { ShoppingService } from '../services/shopping.service';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
-  filtersForm: FormGroup;
-  typesList = []
-  sizesList = []
-  colorsList = []
+  typesList = [];
+  sizesList = [];
+  colorsList = [];
 
-  constructor(private formbuilder: FormBuilder, private shoppingSer: ShoppingService) {
-    this.filtersForm = this.formbuilder.group({
-      type: [null],
-      size: [null],
-      color: [null],
-      price: [null]
-    })
+  filterObject: any;
+
+  constructor(private shoppingSer: ShoppingService) {
+
    }
 
   ngOnInit(): void {
+
     this.shoppingSer.getTypes().subscribe( res => {
       this.typesList = res;
     });
@@ -34,19 +30,26 @@ export class FiltersComponent implements OnInit {
     this.shoppingSer.getColors().subscribe( res => {
       this.colorsList = res;
     });
+
+      this.initializeSearch();
   }
 
-
-  onSelecteType(typeId: number): void {
-    this.shoppingSer.productType.next(typeId);
+  filterObjValue(filterObj) {
+    this.shoppingSer.filterproduct.next(filterObj)
   }
 
-  onSelecteSize(sizeId: number): void{
-
+  getAllProducts() {
+    this.shoppingSer.getProductList().subscribe( res => {
+      this.shoppingSer.productsList.next(res)
+    })
   }
 
-  onSelecteColor(colorId: number): void {
-
+  initializeSearch(){
+    this.filterObject = {
+      typeId: null,
+      colorId: null,
+      sizeId: null,
+    }
   }
 
 }

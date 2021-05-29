@@ -8,18 +8,24 @@ import { HttpClient } from '@angular/common/http'
 
 export class ShoppingService {
 
-  productType = new Subject<any> ();
-  productTypeSubject = this.productType.asObservable();
+  filterproduct = new Subject<any> ();
+  filterproductSubject = this.filterproduct.asObservable();
+  productsList = new Subject<any> ();
+  productsListSubject = this.productsList.asObservable();
+
 
   url = 'http://localhost:3000'
   constructor(private http: HttpClient ) {}
 
-  filteredProductsList(typeId?: number): Observable<any> {
-    return this.http.get<any>(`${this.url}/products?typeId=${typeId}`);
+  filteredProductsList(typeId=1, colorId=1, sizeId=1 ): Observable<any> {
+    return this.http.get<any>(`${this.url}/products?typeId=${typeId}&colorId=${colorId}&sizeId=${sizeId}`);
   }
 
   getProductList(): Observable<any> {
     return this.http.get<any>(`${this.url}/products`);
+  }
+  getProductdetails(id:number): Observable<any> {
+    return this.http.get<any>(`${this.url}/products/${id}`);
   }
 
   getTypes(): Observable<any> {

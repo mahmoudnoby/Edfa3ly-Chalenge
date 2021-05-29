@@ -9,19 +9,14 @@ import { ProductsComponent } from './shopping-list/products/products.component';
 import { FiltersComponent } from './shopping-list//filters/filters.component';
 import { ProductItemComponent } from './shopping-list/products/product-item/product-item.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarRatingComponent } from './shopping-list/products/product-item/star-rating/star-rating.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShoppingListComponent,
-    ProductsComponent,
-    FiltersComponent,
-    ProductItemComponent,
-    StarRatingComponent,
 
   ],
   imports: [
@@ -29,9 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    NgbModule,
-    FormsModule,
-    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

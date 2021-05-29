@@ -1,8 +1,21 @@
 <div class="color-filter">
-  <div class="card-header bg-secondary"> <h6 class="text-white">FILTER BY</h6></div>
+  <div class="card-header bg-secondary">
+    <h6 class="text-white">FILTER BY</h6>
+  </div>
   <div class="type-filter">
-    <form [formGroup]="filtersForm">
-      <h6 class="mb-3 card-header">Type</h6>
+    <div class="ng-select">
+      <h6 class="card-header">Type</h6>
+      <ng-select [items]="typesList" bindLabel="name" bindValue="id"  (clear)="getAllProducts()" [(ngModel)]="filterObject.typeId" (ngModelChange)="filterObjValue(filterObject)" placeholder="Choose Type"></ng-select>
+    </div>
+    <div class="ng-select">
+      <h6 class="card-header">Size</h6>
+      <ng-select [items]="sizesList" bindLabel="name" bindValue="id" (clear)="getAllProducts()" [(ngModel)]="filterObject.sizeId" (ngModelChange)="filterObjValue(filterObject)" placeholder="Choose Type"></ng-select>
+    </div>
+    <div class="ng-select">
+      <h6 class="card-header">Color</h6>
+      <ng-select [items]="colorsList" bindLabel="name" bindValue="id" (clear)="getAllProducts()" [(ngModel)]="filterObject.colorId" (ngModelChange)="filterObjValue(filterObject)" placeholder="Choose Type"></ng-select>
+    </div>
+    <!-- <form [formGroup]="filtersForm">
       <div class="form-group form-check">
         <select class="form-control" formControlName="type" id="" (ngModelChange)="onSelecteType($event)" >
           <option [ngValue]="null" disabled selected hidden>Choose Type</option>
@@ -11,6 +24,7 @@
           </option>
         </select>
       </div>
+
       <h6 class="mb-3 card-header">Size</h6>
       <div class="form-group form-check">
         <select class="form-control" formControlName="size" id="" (ngModelChange)="onSelecteSize($event)" >
@@ -29,7 +43,8 @@
           </option>
         </select>
       </div>
-    </form>
+    </form> -->
+
   </div>
   <!-- <div class="size-filter">
     <h6>Size</h6>

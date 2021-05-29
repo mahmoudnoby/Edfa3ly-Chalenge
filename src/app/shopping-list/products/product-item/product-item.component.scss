@@ -1,33 +1,35 @@
-.product-card .card-body{
+.card{
+  cursor: pointer;
+  .card-body{
     padding: 1rem;
-}
-.product-card .card-text{
+  }
+  .card-text{
     font-size: 11px;
-}
-.product-card h3{
+    }
+  h3{
     text-transform: uppercase;
     font-weight: 300;
     font-size: 30px;
     margin-bottom: 30px;
-    color: rgba(0, 131, 207, 0.794); 
-}
-.product-card h5{
+    color: rgba(0, 131, 207, 0.794);
+  }
+  h5{
     font-size: 19px;
     font-weight: 400;
-}
-.product-card .deleted{
+  }
+  h6{
+    color:rgba(0, 131, 207, 0.794);
+  }
+  .deleted{
     font-size: 14px;
     color: rgb(168, 168, 168);
-
-}
-.product-card h6{
-    color:rgba(0, 131, 207, 0.794); 
-}
-.product-card span{
+  }
+  span{
     font-size: 12px;
     margin-right: 20px;
-}
-.product-card .product-review .fas{
+  }
+  .product-review .fas{
     font-size: 15px;
     color: rgba(0, 131, 207, 0.794);
+  }
 }

@@ -7,9 +7,11 @@ const routes: Routes = [];
   imports: [RouterModule.forRoot([
     {
       path:'',
-      loadChildren: () => import('./_shared/shared.module')
-      .then( m => m.SharedModule ), data:{}
-    }
+      loadChildren: () => import('./shopping-list/products.module')
+      .then( m => m.ProductsModule ), data:{}
+    },
+    {path:"**", redirectTo:'products', pathMatch:"full"},
+
   ])],
   exports: [RouterModule]
 })
